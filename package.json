@@ -1,0 +1,21 @@
+{
+    "name": "telegrambotfreelance",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon --exec babel-node server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "babel-cli": "^6.14.0",
+        "babel-preset-es2015": "^6.14.0",
+        "telegram-node-bot": "^3.0.12"
+    },
+    "devDependencies": {
+        "nodemon": "^1.10.2"
+    }
+}
