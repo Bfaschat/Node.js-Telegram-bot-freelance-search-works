@@ -1,24 +1,25 @@
-import Telegram from 'telegram-node-bot';
+import telegram from 'telegram-bot-api';
 import config from "config/config.json";
 
+var api = new telegram({
+    token: config.api
+});
 
-const TELEGRAMEBASECONTROLLER = Telegram.TelegramBaseController;
-const TG = new Telegram.Telegram(config.api);
+api.on('message', function(message) {
+    var chat_id = message.chat.id;
 
-class PingController extends TELEGRAMEBASECONTROLLER {
-    /**
-     * @param {Scope} $
-     */
-    pingHandler($) {
-        $.sendMessage('pong')
-    }
+    // It'd be good to check received message type here
+    // And react accordingly
+    // We consider that only text messages can be received here
 
-    get routes() {
-        return {
-            'ping': 'pingHandler'
-        }
-    }
-}
-
-TG.router
-    .when(['ping'], new PingController())
+    api.sendMessage({
+            chat_id: message.chat.id,
+            text: message.text ? message.text : 'This message doesn\'t contain text :('
+        })
+        .then(function(message) {
+            console.log(message);
+        })
+        .catch(function(err) {
+            console.log(err);
+        });
+});
