@@ -19,6 +19,8 @@
     "json5": "^0.5.0",
     "node-telegram-bot-api": "*",
     "request": "^2.79.0",
+    "sleep": "^5.0.0",
+    "upwork-api": "^1.2.1",
     "xml2json": "^0.10.0"
   },
   "devDependencies": {
